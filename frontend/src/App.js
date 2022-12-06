@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main className="py-3">
+      <main >
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/country" element={<CountryScreen />} />

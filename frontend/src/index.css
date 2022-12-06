@@ -2,13 +2,19 @@ main {
   min-height: 80vh;
 }
 .containerBackground {
-  background: #cbcb;
+  background: #171717;
   height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.videoBackground{
+  background: #171717;
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 .searchGroup {
   position: relative;
@@ -22,10 +28,10 @@ main {
   font-size: 16px;
 }
 .videoGroup {
-  background: #000;
-  width: 1220px;
-  margin: auto;
-  padding: 10px;
+  width: 100%;
+ padding-left:10%;
+ padding-right: 10%; 
+   
 }
 .videoGroup ul {
   margin: 0;
@@ -34,74 +40,52 @@ main {
   flex-wrap: wrap;
 }
 .videoGroup ul li {
-  margin: 0;
-  padding: 0;
+  
   list-style: none;
-  width: 25%;
+  width: 23%;
+  background: #D9D9D9;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 15px;
+}
+.videoGroup ul li a{
+text-decoration: none;
 }
 .videoGroup ul li .headerCategory h1 {
-  color: #fff;
-  font-size: 16px;
+  color: #000000;
+  font-size: 20px;
 }
 .videoGroup ul li .footerCategory p {
-  color: #fff;
-  font-size: 12px;
+  color: #000000;
+  font-size: 18px;
 }
 
-/* .searchGroup button {
+.video-them{
+  Width:100%;
+Height:234px;
+}
+.video-them img{
+  Width: 100%;
+ 
+}
+ .video-react-controls-enabled{
+  padding-top:0px!important;
+ }
+
+ .video-react-video {
+  width: 100%;
+}
+
+.video-Player{
+  position: relative;
+}
+
+button.close {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 5%;
+  top: 5%;
+  border: 0px;
+  border-radius: 100%;
   width: 50px;
-  height: 100%;
-  color: #000 !important;
-  background-color: #0000;
-  padding: 0;
+  height: 50px;
 }
-.searchGroup button i {
-  color: #000 !important;
-}
-.searchGroup button:hover {
-  color: red !important;
-  background: #0000;
-}
-.searchGroup button:focus {
-  color: red !important;
-  background: #0000;
-}
-.searchGroup button:active {
-  color: red !important;
-  background: #0000;
-}
-.btn-check:checked + .btn,
-.btn.active,
-.btn.show,
-.btn:first-child:active,
-:not(.btn-check) + .btn:active {
-  color: #0000 !important;
-  background-color: #0000 !important;
-  border-color: #0000 !important;
-}
-.searchGroup input {
-  border-radius: 10px;
-}
-
-
-.cmyNjn > .wrapper {
-  position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 500px;
-  border: 1px solid #dfe1e5;
-  border-radius: 24px;
-  background-color: white;
-  color: #212121;
-  font-size: 16px;
-  font-family: Arial;
-  z-index: 0;
-} */
