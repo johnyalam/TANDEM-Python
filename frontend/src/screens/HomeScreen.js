@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Container, input } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
@@ -16,15 +15,15 @@ function HomeScreen() {
     },
     {
       id: 2,
-      name: "Basic"
+      name: "Italy"
     },
     {
       id: 3,
-      name: "FA"
+      name: "Spain"
     },
     {
       id: 4,
-      name: "Fu"
+      name: "France"
     }
   ];
 

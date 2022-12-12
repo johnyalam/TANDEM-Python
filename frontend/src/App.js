@@ -7,17 +7,16 @@ import Header from "./components/Header";
 
 import HomeScreen from "./screens/HomeScreen";
 import CategoryScreen from "./screens/CategoryScreen";
-import CountryScreen from "./screens/CountryScreen";
 import VideoPlayScreen from "./screens/VideoPlayScreen";
 
 function App() {
   return (
     <Router>
       <Header />
-      <main >
+      <main>
         <Routes>
           <Route path="/" element={<HomeScreen />} />
-          <Route path="/country" element={<CountryScreen />} />
+          <Route path="/country" element={<HomeScreen />} />
           <Route path="/category" element={<CategoryScreen />} exact />
           <Route path="/video" element={<VideoPlayScreen />} />
         </Routes>

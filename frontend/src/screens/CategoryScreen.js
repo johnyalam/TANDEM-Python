@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import slideImg1 from '../assets/video-placeholder.png';
+import slideImg1 from "../assets/video-placeholder.png";
 
 function CategoryScreen() {
   return (
@@ -15,13 +15,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -32,13 +32,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -49,13 +49,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -65,13 +65,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -82,13 +82,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -99,13 +99,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -116,13 +116,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -133,13 +133,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -150,13 +150,13 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
@@ -167,19 +167,16 @@ function CategoryScreen() {
                 <h1>First Video</h1>
               </div>
               <div class="video-them">
-              <img 
-      src={slideImg1}
-      alt="new"
-      />
+                <img src={slideImg1} alt="new" />
               </div>
               <div className="footerCategory">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor...
+                </p>
               </div>
             </Link>
           </li>
-
-         
-          
         </ul>
       </div>
     </div>

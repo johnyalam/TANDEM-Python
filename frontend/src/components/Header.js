@@ -10,12 +10,9 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">
-                <i className="fas fa-shopping-cart"></i>Cart
-              </Nav.Link>
-              <Nav.Link href="/">
-                <i className="fas fa-user"></i>Login
-              </Nav.Link>
+              <Nav.Link href="/country">Country</Nav.Link>
+              <Nav.Link href="/category">Category</Nav.Link>
+              <Nav.Link href="/video">Video</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
