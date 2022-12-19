@@ -8,12 +8,12 @@ import axios from "axios";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 function CategoryScreen() {
-  const [category, setCategory] = useState({});
+  const [category, setCategory] = useState([]);
   useEffect(() => {
     async function fetchCategoryVideo() {
       const { data } = await axios.get("/api/category/1");
       setCategory(data);
-      console.log("-------data", data.category);
+      console.log("-------data", data);
     }
     fetchCategoryVideo();
   }, []);
@@ -89,17 +89,16 @@ function CategoryScreen() {
         </div>
       </div> */}
 
-      {/* {category === undefined
-        ? null
-        : // console.log("category:", JSON.stringify(category.category))
-          category.category.map((category, index) => (
-            <p>Hello, {category.category_name}</p>
-          ))} */}
-
       <div className="videoGroup">
+        {category.length > 0
+          ? category.map((category, index) => {
+              console.log("-------data", category.category_name);
+            })
+          : null}
+
         <p class="text-white">Electric Vehicles</p>
 
-        {/* {data1.map((item, key) => {
+        {/* {category.map((item, key) => {
           return;
           <tr key={key}>
             <td>{item.heading}</td>
@@ -279,7 +278,6 @@ function CategoryScreen() {
           </li>
         </ul>
       </div>
-
       <div className="videoGroup">
         <p class="text-white">Electric Vehicles</p>
         <ul>

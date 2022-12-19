@@ -4,9 +4,9 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .videosjson import videosjson
+from .category import category
 from .countryjson import country
-from .videoactionsjson import videoactions
+from .videoactionsjson import videoActions
 
 # Create your views here.
 
@@ -26,12 +26,12 @@ def getCountry(request):
 
 @api_view(['GET'])
 def getCountryWiseCategory(request, pk):
-    return Response(videosjson)
+    return Response(category)
 
 @api_view(['GET'])
 def getVideoDetails(request, pk):
     video = None
-    for i in videosjson:
+    for i in category:
         if i['_id'] == pk:
             video = i
             break
@@ -39,5 +39,5 @@ def getVideoDetails(request, pk):
 
 @api_view(['GET'])
 def getVideoInteractions(request, pk):
-    return Response(videoactions)
+    return Response(videoActions)
 
