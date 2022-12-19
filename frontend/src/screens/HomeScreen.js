@@ -1,50 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import axios from "axios";
 
 function HomeScreen() {
-  const items = [
-    {
-      id: 0,
-      name: "Finland"
-    },
-    {
-      id: 1,
-      name: "Germany"
-    },
-    {
-      id: 2,
-      name: "Italy"
-    },
-    {
-      id: 3,
-      name: "Spain"
-    },
-    {
-      id: 4,
-      name: "France"
+  const [country, setCountry] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchCountries() {
+      const { data } = await axios.get("/api/country/");
+      setCountry(data);
+      console.log("-------data", data);
     }
-  ];
+    fetchCountries();
+  }, []);
 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
-    console.log(string, results);
+    console.log("handleOnSearch: ", string, results);
+
+    // navigate("/category");
   };
 
   const handleOnHover = (result) => {
     // the item hovered
-    console.log(result);
+    console.log("handleOnHover: ", result);
   };
 
   const handleOnSelect = (item) => {
     // the item selected
-    console.log(item);
+    console.log("handleOnSelect: ", item);
+    navigate("/category");
   };
 
   const handleOnFocus = () => {
-    console.log("Focused");
+    console.log("handleOnFocus", "Focused");
   };
 
   const formatResult = (item) => {
@@ -53,6 +46,7 @@ function HomeScreen() {
         <Link to={"/category"}>
           <span style={{ display: "block", textAlign: "left" }}>
             {item.name}
+            {console.log("formatResult")}
           </span>
         </Link>
       </>
@@ -65,7 +59,7 @@ function HomeScreen() {
         <p>Select Country</p>
         <div className="searchGroup">
           <ReactSearchAutocomplete
-            items={items}
+            items={country}
             onSearch={handleOnSearch}
             onHover={handleOnHover}
             onSelect={handleOnSelect}

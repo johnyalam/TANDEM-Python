@@ -6,6 +6,7 @@ from rest_framework.response import Response
 
 from .videosjson import videosjson
 from .countryjson import country
+from .videoactionsjson import videoactions
 
 # Create your views here.
 
@@ -38,5 +39,5 @@ def getVideoDetails(request, pk):
 
 @api_view(['GET'])
 def getVideoInteractions(request, pk):
-    return Response(videosjson)
+    return Response(videoactions)
 

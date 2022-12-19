@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 
@@ -14,12 +13,12 @@ function App() {
     <Router>
       <Header />
       <main>
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/country" element={<HomeScreen />} />
           <Route path="/category" element={<CategoryScreen />} exact />
           <Route path="/video" element={<VideoPlayScreen />} />
-        </Routes>
+        </Routes> */}
       </main>
       <Footer />
     </Router>
