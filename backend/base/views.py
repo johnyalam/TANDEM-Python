@@ -4,8 +4,11 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .models import Country
+from .serailizers import CountrySerializer
+
 from .category import category
-from .countryjson import country
+# from .countryjson import country
 from .videoactionsjson import videoActions
 
 # Create your views here.
@@ -22,7 +25,9 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getCountry(request):
-    return Response(country)
+    country = Country.objects.all()
+    serializers = CountrySerializer(country, many = True)
+    return Response(serializers.data)
 
 @api_view(['GET'])
 def getCountryWiseCategory(request, pk):
