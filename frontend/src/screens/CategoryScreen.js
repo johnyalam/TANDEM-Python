@@ -1,9 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import slideImg1 from "../assets/video-placeholder.png";
 import slideImg2 from "../assets/video-placeholder.png";
 import videoPreview from "../assets/video-placeholder.png";
+import CategoryItem from "../components/CategoryItem";
 import axios from "axios";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
@@ -90,11 +91,26 @@ function CategoryScreen() {
       </div> */}
 
       <div className="videoGroup">
-        {category.length > 0
+        {/* <Col>
+          {category.map((item) => (
+            <Col key={item.id} sm={12} md={6} lg={4} xl={3}>
+              <p class="text-white">Electric Vehicles{item.video.length}</p>
+              <Row>
+                {item.video.map((video) => (
+                  <Col key={video._id} sm={12} md={6} lg={4} xl={3}>
+                    <CategoryItem category={video}></CategoryItem>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          ))}
+        </Col> */}
+
+        {/* {category.length > 0
           ? category.map((category, index) => {
               console.log("-------data", category.category_name);
             })
-          : null}
+          : null} */}
 
         <p class="text-white">Electric Vehicles</p>
 

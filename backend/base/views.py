@@ -5,10 +5,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Country
+from .models import Category
 from .serailizers import CountrySerializer
+from .serailizers import CategorySerializer
 
 from .category import category
-# from .countryjson import country
 from .videoactionsjson import videoActions
 
 # Create your views here.
@@ -31,7 +32,9 @@ def getCountry(request):
 
 @api_view(['GET'])
 def getCountryWiseCategory(request, pk):
-    return Response(category)
+    category = Category.objects.filter(country=pk)
+    serializers = CategorySerializer(category, many = True)
+    return Response(serializers.data)
 
 @api_view(['GET'])
 def getVideoDetails(request, pk):
