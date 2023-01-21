@@ -2,16 +2,12 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import slideImg1 from "../assets/images/c1.png";
+import videoPreview from "../assets/video-placeholder.png";
+
 function CategoryItem({ category }) {
   return (
     <Card className="my-3 p-3 rounded">
-      {/* <Link to={"/video/" + category.id}>
-        <Card.Title as="div">
-          <strong>{product.name}</strong>
-        </Card.Title>
-        <Card.Img src={category.image}></Card.Img>
-        <Card.Text as="h3">${product.price}</Card.Text>
-      </Link> */}
       <Card.Body>
         <Link to={"/video"}>
           <Card.Title as="div">
@@ -20,10 +16,11 @@ function CategoryItem({ category }) {
         </Link>
         <Card.Text as="div">
           <div className="my-3">
-            <Card.Img src={category.image}></Card.Img>
+            <Card.Img src={slideImg1}></Card.Img>
           </div>
         </Card.Text>
-        <Card.Text as="h3">${category.description}</Card.Text>
+
+        <Card.Text as="p">{category.details}</Card.Text>
       </Card.Body>
     </Card>
   );

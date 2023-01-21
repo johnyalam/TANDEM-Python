@@ -7,12 +7,10 @@ from rest_framework.response import Response
 from .models import Country
 from .models import Category
 from .models import Video
+# from .models import VideoAction
 
 from .serailizers import CountrySerializer, CategorySerializer, VideoSerializer
-# from .serailizers import CategorySerializer
 
-from .videoactionsjson import videoActions
-from .category import category
 
 # Create your views here.
 
@@ -20,7 +18,7 @@ from .category import category
 def getRoutes(request):
     routes =[
         '/api/country/',
-        '/api/category/<id>',
+        '/api/category/',
         '/api/video/<id>',
         '/api/video-action/<id>',
     ]
@@ -33,18 +31,20 @@ def getCountry(request):
     return Response(serializers.data)
 
 @api_view(['GET'])
-def getCountryWiseCategory(request, pk):
-    category = Category.objects.filter(country=pk)
+def getCountryWiseCategory(request):
+    category = Category.objects.all()
     serializers = CategorySerializer(category, many = True)
     return Response(serializers.data)
 
 @api_view(['GET'])
 def getVideoDetails(request, pk):
-    videos = Video.objects.filter(category=pk)
+    videos = Video.objects.filter(country=pk)
     serializers = VideoSerializer(videos, many = True)
     return Response(serializers.data)
 
-@api_view(['GET'])
-def getVideoInteractions(request, pk):
-    return Response(videoActions)
+# @api_view(['GET'])
+# def getVideoInteractions(request, pk):
+#     actions = VideoAction.objects.filter(videoId = pk)
+#     serializers = VideoSerializer(actions, many = True)
+#     return Response(serializers.data)
 
