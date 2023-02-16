@@ -104,3 +104,10 @@ button.close {
   font-family: sans-serif;
   text-align: center;
 }
+
+.BeerListItem-img {
+  height: auto;
+  max-height: 250px;
+  width: auto;
+  max-width: 250px;
+}

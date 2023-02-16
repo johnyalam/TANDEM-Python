@@ -7,9 +7,9 @@ from rest_framework.response import Response
 from .models import Country
 from .models import Category
 from .models import Video
-# from .models import VideoAction
+from .models import Action
 
-from .serailizers import CountrySerializer, CategorySerializer, VideoSerializer
+from .serailizers import CountrySerializer, CategorySerializer, VideoSerializer, ActionSerializer
 
 
 # Create your views here.
@@ -42,9 +42,9 @@ def getVideoDetails(request, pk):
     serializers = VideoSerializer(videos, many = True)
     return Response(serializers.data)
 
-# @api_view(['GET'])
-# def getVideoInteractions(request, pk):
-#     actions = VideoAction.objects.filter(videoId = pk)
-#     serializers = VideoSerializer(actions, many = True)
-#     return Response(serializers.data)
+@api_view(['GET'])
+def getVideoInteractions(request, pk):
+    actions = Action.objects.filter(video=pk)
+    serializers = ActionSerializer(actions, many = True)
+    return Response(serializers.data)
 

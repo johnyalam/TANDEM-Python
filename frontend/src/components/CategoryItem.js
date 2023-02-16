@@ -1,9 +1,8 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Image, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import slideImg1 from "../assets/images/c1.png";
-import videoPreview from "../assets/video-placeholder.png";
+import placeholder from "../assets/images/play.png";
 
 function CategoryItem({ category }) {
   return (
@@ -14,11 +13,17 @@ function CategoryItem({ category }) {
             <strong>{category.title}</strong>
           </Card.Title>
         </Link>
-        <Card.Text as="div">
-          <div className="my-3">
-            <Card.Img src={slideImg1}></Card.Img>
-          </div>
-        </Card.Text>
+        <Link to={"/video"}>
+          <Card.Text as="div">
+            <div className="my-3">
+              <Card.Img
+                src={category.thumb}
+                className="CategoryListItem-img"
+              ></Card.Img>
+              {/* <Card.Img src={placeholder} ></Card.Img> */}
+            </div>
+          </Card.Text>
+        </Link>
 
         <Card.Text as="p">{category.details}</Card.Text>
       </Card.Body>

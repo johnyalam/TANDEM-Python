@@ -43,7 +43,13 @@ function HomeScreen() {
   const formatResult = (item) => {
     return (
       <>
-        <Link to={"/category"}>
+        <Link
+          // to={"/category"}
+          to={{
+            pathname: "/category",
+            state: { value: item.id }
+          }}
+        >
           <span style={{ display: "block", textAlign: "left" }}>
             {item.name}
             {console.log("formatResult")}

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
-import slideImg1 from "../assets/video-placeholder.png";
-import slideImg2 from "../assets/video-placeholder.png";
-import videoPreview from "../assets/video-placeholder.png";
+
 import CategoryItem from "../components/CategoryItem";
 import axios from "axios";
 
@@ -13,15 +9,12 @@ function CategoryScreen() {
 
   useEffect(() => {
     async function fetchVideo() {
-      const id = 3;
-      const { data } = await axios.get(`/api/video/${id}`);
+      const { data } = await axios.get(`/api/video/${1}`);
       console.log(data);
       setVideo(data);
     }
     fetchVideo();
   }, []);
-
-
 
   return (
     <div className="container-full videoBackground">
@@ -33,8 +26,6 @@ function CategoryScreen() {
             </Col>
           ))}
         </Row>
-
-       
       </div>
     </div>
   );
