@@ -1,71 +1,77 @@
 import React, { useState, useEffect, useRef } from "react";
-import slideImg2 from "../assets/images/c1.png";
+import { useParams } from "react-router-dom";
 
-import slideImg1 from "../assets/video-placeholder.png";
 import thumb from "../assets/images/thumb_1.png";
 import axios from "axios";
 
-var position = 0;
-
+var actionTimeArray = [];
 export default function VideoPlayScreen() {
-  const [videoActions, setVideoActions] = useState([]);
-  const [rightCornerAd, setRightCornerAd] = useState("");
+  const params = useParams();
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [videoActions, setVideoActions] = useState([]);
+  const [videoDetails, setVideoDetails] = useState([]);
+
+  const [rightCornerAd, setRightCornerAd] = useState("");
+  const [actionThumb, setActionThumb] = useState("");
+
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const videoRef = useRef();
-  const thumbRef = useRef(null);
 
   useEffect(() => {
+    actionTimeArray = [];
+
     async function fetchVideoActions() {
-      const { data } = await axios.get("/api/video-action/1");
+      const { data } = await axios.get("/api/video-action/" + params.id);
+      console.log("fetchVideoActions : " + data);
+      for (const element of data) {
+        actionTimeArray.push(Math.ceil(element.startTime));
+      }
       setVideoActions(data);
-      console.log("-------fetchVideoActions: ", data);
     }
     fetchVideoActions();
+
+    async function fetchSingleVideo() {
+      const { data } = await axios.get("/api/single-video/" + params.id);
+      setVideoDetails(data);
+
+      if (data.length > 0) {
+        console.log("fetchSingleVideo : " + data[0].video);
+      }
+
+      setTimeout(() => {
+        videoRef.current.play();
+      }, duration * 9000);
+    }
+    fetchSingleVideo();
   }, []);
-
-  const handleTimeUpdate = () => {
-    setCurrentTime(videoRef.current.currentTime);
-    var currentTime = Math.ceil(videoRef.current.currentTime);
-    checkActions(currentTime);
-
-    console.log(
-      "currentTime: " +
-        Math.ceil(currentTime) +
-        " ? " +
-        videoRef.current.currentTime +
-        " ? rightCornerAd:  " +
-        rightCornerAd
-    );
-  };
 
   const handleLoadedMetadata = () => {
     setDuration(videoRef.current.duration);
   };
 
-  const checkActions = (time) => {
-    if (videoActions.length > 0 && position < videoActions.length) {
-      var startTime = parseInt(videoActions[position].startTime);
-      var duration = parseInt(videoActions[position].duration);
-      console.log(
-        position +
-          " ##### ::::: startTime: " +
-          startTime +
-          " duration: " +
-          duration
-      );
+  const handleTimeUpdate = () => {
+    setCurrentTime(videoRef.current.currentTime);
+    let currentTime = Math.ceil(videoRef.current.currentTime);
+    if (actionTimeArray.includes(currentTime)) {
+      getActionObject(currentTime);
+    }
+  };
 
-      if (time == startTime && rightCornerAd == "") {
-        position = position + 1;
-        console.log(position);
+  const getActionObject = (time) => {
+    for (const element of videoActions) {
+      let actionObject = element;
+      let duration = parseInt(actionObject.duration);
 
-        setRightCornerAd("show");
-
-        setTimeout(() => {
-          setRightCornerAd("");
-        }, duration * 1000);
+      if (time == actionObject.startTime) {
+        if (rightCornerAd == "") {
+          setRightCornerAd("show");
+          setActionThumb(actionObject.thumb);
+          setTimeout(() => {
+            setRightCornerAd("");
+          }, duration * 1000);
+        }
+        break;
       }
     }
   };
@@ -74,20 +80,19 @@ export default function VideoPlayScreen() {
     <div className="container-full videoBackground p-0">
       <video
         ref={videoRef}
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+        src={videoDetails.length > 0 ? videoDetails[0].video : null}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         class="video-Player"
         width="100%"
         height="100%"
-        controls
-        poster={thumb}
+        poster={videoDetails.length > 0 ? videoDetails[0].thumb : thumb}
       />
 
       {rightCornerAd !== "" ? (
         <button class="close">
           <div class="video-them">
-            <img src={slideImg2} alt="new" />
+            <img src={actionThumb} alt="new" />
           </div>
         </button>
       ) : null}

@@ -18,8 +18,8 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/country" element={<HomeScreen />} />
-            <Route path="/category" element={<CategoryScreen />} exact />
-            <Route path="/video" element={<VideoPlayScreen />} />
+            <Route path="/category/:id" element={<CategoryScreen />} exact />
+            <Route path="/video/:id" element={<VideoPlayScreen />} exact />
           </Routes>
         </main>
         <Footer />

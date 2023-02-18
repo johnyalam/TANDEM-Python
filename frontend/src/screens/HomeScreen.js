@@ -12,17 +12,12 @@ function HomeScreen() {
     async function fetchCountries() {
       const { data } = await axios.get("/api/country/");
       setCountry(data);
-      console.log("-------data", data);
     }
     fetchCountries();
   }, []);
 
   const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
     console.log("handleOnSearch: ", string, results);
-
-    // navigate("/category");
   };
 
   const handleOnHover = (result) => {
@@ -32,27 +27,17 @@ function HomeScreen() {
 
   const handleOnSelect = (item) => {
     // the item selected
-    console.log("handleOnSelect: ", item);
-    navigate("/category");
+    navigate("/category/" + item.id);
   };
 
-  const handleOnFocus = () => {
-    console.log("handleOnFocus", "Focused");
-  };
+  const handleOnFocus = () => {};
 
   const formatResult = (item) => {
     return (
       <>
-        <Link
-          // to={"/category"}
-          to={{
-            pathname: "/category",
-            state: { value: item.id }
-          }}
-        >
+        <Link to={"/category/" + item.id}>
           <span style={{ display: "block", textAlign: "left" }}>
             {item.name}
-            {console.log("formatResult")}
           </span>
         </Link>
       </>
@@ -73,9 +58,6 @@ function HomeScreen() {
             autoFocus
             formatResult={formatResult}
           />
-          {/* <Button>
-            <i className="fas fa-search"></i>
-          </Button> */}
         </div>
       </div>
     </div>

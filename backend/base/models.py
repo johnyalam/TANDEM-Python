@@ -44,21 +44,6 @@ class Video(models.Model):
     def __str__(self):
         return self.title
 
-# class VideoActions(models.Model):
-#     user =  models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-#     video_Id = models.ForeignKey(Video, on_delete=models.CASCADE, null=True)
-#     title = models.CharField(max_length=200, null=True, blank=True)
-#     details = models.CharField(max_length=500, null=True, blank=True)
-#     thumb = models.ImageField(null=True, blank=True)
-#     startTime = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
-#     duration = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)
-#     active = models.BooleanField(default=False)
-#     createdAt = models.DateTimeField(auto_created=True)
-#     modifiedAt = models.DateTimeField(auto_created=True)
-
-#     def __str__(self):
-#         return self.title
-
 class Action(models.Model):
     user =  models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     video = models.ForeignKey(Video, on_delete=models.CASCADE, null=True)

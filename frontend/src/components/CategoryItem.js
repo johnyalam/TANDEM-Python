@@ -1,26 +1,21 @@
 import React from "react";
-import { Card, Image, Row, Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-import placeholder from "../assets/images/play.png";
 
 function CategoryItem({ category }) {
   return (
     <Card className="my-3 p-3 rounded">
       <Card.Body>
-        <Link to={"/video"}>
+        {console.log("???? : " + category.id)}
+        <Link to={"/video/" + category.id}>
           <Card.Title as="div">
             <strong>{category.title}</strong>
           </Card.Title>
         </Link>
-        <Link to={"/video"}>
+        <Link to={"/video/" + category.id}>
           <Card.Text as="div">
             <div className="my-3">
-              <Card.Img
-                src={category.thumb}
-                className="CategoryListItem-img"
-              ></Card.Img>
-              {/* <Card.Img src={placeholder} ></Card.Img> */}
+              <Card.Img src={category.thumb} className="CategoryListItem-img" />
             </div>
           </Card.Text>
         </Link>

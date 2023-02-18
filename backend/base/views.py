@@ -43,8 +43,14 @@ def getVideoDetails(request, pk):
     return Response(serializers.data)
 
 @api_view(['GET'])
+def getSingleVideo(request, pk):
+    videos = Video.objects.filter(id=pk)
+    serializers = VideoSerializer(videos, many = True)
+    return Response(serializers.data)
+
+@api_view(['GET'])
 def getVideoInteractions(request, pk):
-    actions = Action.objects.filter(video=pk)
+    actions = Action.objects.filter(video=pk).order_by('startTime')
     serializers = ActionSerializer(actions, many = True)
     return Response(serializers.data)
 

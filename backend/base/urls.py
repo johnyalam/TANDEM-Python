@@ -6,5 +6,6 @@ urlpatterns = [
     path('country/', views.getCountry, name="routes"),
     path('category/', views.getCountryWiseCategory, name="routes"),
     path('video/<str:pk>', views.getVideoDetails, name="routes"),
+    path('single-video/<str:pk>', views.getSingleVideo, name="routes"),
     path('video-action/<str:pk>', views.getVideoInteractions, name="routes"),
 ]

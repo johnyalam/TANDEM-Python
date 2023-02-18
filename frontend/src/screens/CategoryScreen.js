@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 import CategoryItem from "../components/CategoryItem";
 import axios from "axios";
 
 function CategoryScreen() {
+  const params = useParams();
+
   const [videos, setVideo] = useState([]);
 
   useEffect(() => {
     async function fetchVideo() {
-      const { data } = await axios.get(`/api/video/${1}`);
+      const { data } = await axios.get(`/api/video/${params.id}`);
       console.log(data);
       setVideo(data);
     }
@@ -22,7 +25,7 @@ function CategoryScreen() {
         <Row>
           {videos.map((video) => (
             <Col key={video.id} sm={12} md={6} lg={4} xl={3}>
-              <CategoryItem category={video}></CategoryItem>
+              <CategoryItem category={video} />
             </Col>
           ))}
         </Row>
