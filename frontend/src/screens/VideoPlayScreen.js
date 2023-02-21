@@ -3,8 +3,10 @@ import { useParams } from "react-router-dom";
 
 import thumb from "../assets/images/thumb_1.png";
 import axios from "axios";
+import ImageComponent from "../components/ImageComponent";
 
-var actionTimeArray = [];
+let actionTimeArray = [];
+
 export default function VideoPlayScreen() {
   const params = useParams();
 
@@ -17,6 +19,7 @@ export default function VideoPlayScreen() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const videoRef = useRef();
+  const overlayRef = useRef(null);
 
   useEffect(() => {
     actionTimeArray = [];
@@ -90,11 +93,7 @@ export default function VideoPlayScreen() {
       />
 
       {rightCornerAd !== "" ? (
-        <button class="close">
-          <div class="video-them">
-            <img src={actionThumb} alt="new" />
-          </div>
-        </button>
+        <ImageComponent actionThumb={actionThumb} />
       ) : null}
     </div>
   );

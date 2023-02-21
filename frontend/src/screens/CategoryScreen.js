@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 import CategoryItem from "../components/CategoryItem";
@@ -29,6 +29,15 @@ function CategoryScreen() {
             </Col>
           ))}
         </Row>
+        {videos.length == 0 ? (
+          <div className="overlay">
+            <Card className="my-3 p-3 rounded">
+              <Card.Text as="p">
+                No video data found for the selected country.
+              </Card.Text>
+            </Card>
+          </div>
+        ) : null}
       </div>
     </div>
   );
