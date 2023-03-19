@@ -165,3 +165,86 @@ button.close {
   height: 234px;
   width: 234px;
 }
+
+/* =========== */
+.person-container {
+  position: relative;
+}
+
+.person {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.person1 {
+  top: 0;
+  left: 0;
+}
+
+.person2 {
+  top: 0;
+  right: 0;
+}
+
+.person3 {
+  bottom: 0;
+  left: 0;
+}
+
+.person4 {
+  bottom: 0;
+  right: 0;
+}
+
+.person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.text-view {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.person1-view {
+  left: 110%;
+}
+
+.person2-view {
+  right: 110%;
+}
+
+.person3-view {
+  left: 110%;
+}
+
+.person4-view {
+  right: 110%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}

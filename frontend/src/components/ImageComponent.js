@@ -1,22 +1,62 @@
 import React from "react";
 
 let image_url = "";
-const width = 300;
-const height = 200;
+let position = "";
+let style = null;
+const width = 100;
+const height = 100;
 
-function ImageComponent({ actionThumb }) {
-  image_url = actionThumb;
+function ImageComponent(props) {
+  image_url = props.actionThumb;
+  position = props.position;
 
-  return <img src={actionThumb} style={styles.container} alt="image" />;
+  if (position == 1) {
+    style = styles.containerTopLeft;
+  } else if (position == 2) {
+    style = styles.containerTopRight;
+  } else if (position == 3) {
+    style = styles.containerBottomLeft;
+  } else if (position == 4) {
+    style = styles.containerBottomRight;
+  }
+
+  return <img src={image_url} style={style} alt="image" />;
 }
 
 const styles = {
-  container: {
+  containerTopRight: {
     width: `${width}px`,
     height: `${height}px`,
     position: "absolute",
-    top: 200,
-    right: 10,
+    top: 300,
+    right: 100,
+    background: `url(${image_url}) no-repeat center center`,
+    backgroundSize: "cover"
+  },
+  containerTopLeft: {
+    width: `${width}px`,
+    height: `${height}px`,
+    position: "absolute",
+    top: 300,
+    left: 100,
+    background: `url(${image_url}) no-repeat center center`,
+    backgroundSize: "cover"
+  },
+  containerBottomRight: {
+    width: `${width}px`,
+    height: `${height}px`,
+    position: "absolute",
+    right: 100,
+    bottom: 10,
+    background: `url(${image_url}) no-repeat center center`,
+    backgroundSize: "cover"
+  },
+  containerBottomLeft: {
+    width: `${width}px`,
+    height: `${height}px`,
+    position: "absolute",
+    bottom: 10,
+    left: 100,
     background: `url(${image_url}) no-repeat center center`,
     backgroundSize: "cover"
   }
