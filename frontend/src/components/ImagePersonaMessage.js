@@ -14,15 +14,33 @@ function ImagePersonaMessage(props) {
   if (position == "left-top") {
     return (
       <div style={styles.containerLeft}>
-        <h2>{title}</h2>
-        <p>{message}</p>
+        <div className="scrollable-paragraph-container">
+          <p className="scrollable-paragraph">{message}</p>
+        </div>
       </div>
     );
   } else if (position == "right-top") {
     return (
       <div style={styles.containerRight}>
-        <h2>{title}</h2>
-        <p>{message}</p>
+        <div className="scrollable-paragraph-container">
+          <p className="scrollable-paragraph">{message}</p>
+        </div>
+      </div>
+    );
+  } else if (position == "left-bottom") {
+    return (
+      <div style={styles.containerLeftBottom}>
+        <div className="scrollable-paragraph-container">
+          <p className="scrollable-paragraph">{message}</p>
+        </div>
+      </div>
+    );
+  } else if (position == "right-bottom") {
+    return (
+      <div style={styles.containerRightBottom}>
+        <div className="scrollable-paragraph-container">
+          <p className="scrollable-paragraph">{message}</p>
+        </div>
       </div>
     );
   }
@@ -37,11 +55,12 @@ const styles = {
     borderRadius: "5px",
     marginLeft: "10px",
     top: 300,
-    left: 200,
+    left: 210,
     position: "absolute",
     width: "30%",
-    backgroundColor: "#cbcbcb",
+    backgroundColor: "#0073B8",
     color: "white"
+    // height: 100
     // border: "2px solid red",
     // borderRadius: "2px"
   },
@@ -53,42 +72,49 @@ const styles = {
     borderRadius: "5px",
     marginLeft: "10px",
     top: 300,
-    right: 200,
+    right: 210,
     position: "absolute",
     width: "30%",
-    backgroundColor: "#cbcbcb",
+    backgroundColor: "#0073B8",
     color: "white"
+    // height: 100
+    // border: "2px solid red",
+    // borderRadius: "2px"
+  },
+  containerLeftBottom: {
+    backgroundImage: { image_url },
+    backgroundSize: "cover",
+    color: "#fff",
+    padding: "10px",
+    borderRadius: "5px",
+    marginLeft: "10px",
+    position: "absolute",
+    bottom: 0,
+    left: 210,
+    backgroundColor: "#0073B8",
+    width: "30%",
+    color: "white"
+    // height: 100
+    // border: "2px solid red",
+    // borderRadius: "2px"
+  },
+  containerRightBottom: {
+    backgroundImage: image_url,
+    backgroundSize: "cover",
+    color: "#fff",
+    padding: "10px",
+    borderRadius: "5px",
+    marginLeft: "10px",
+    bottom: 0,
+    right: 210,
+    position: "absolute",
+    backgroundColor: "#0073B8",
+    width: "30%",
+    color: "white"
+    // height: 100
     // border: "2px solid red",
     // borderRadius: "2px"
   }
-  // containerLeftBottom: {
-  //   backgroundImage: image_url,
-  //   backgroundSize: "cover",
-  //   color: "#fff",
-  //   padding: "10px",
-  //   borderRadius: "5px",
-  //   marginLeft: "10px",
-  //   bottom: 300,
-  //   left: 200,
-  //   position: "absolute",
-  //   backgroundColor: "#cbcbcb",
-  //   border: "2px solid red",
-  //   borderRadius: "2px"
-  // },
-  // containerRightBottom: {
-  //   backgroundImage: image_url,
-  //   backgroundSize: "cover",
-  //   color: "#fff",
-  //   padding: "10px",
-  //   borderRadius: "5px",
-  //   marginLeft: "10px",
-  //   bottom: 300,
-  //   right: 200,
-  //   position: "absolute",
-  //   backgroundColor: "#cbcbcb",
-  //   border: "2px solid red",
-  //   borderRadius: "2px"
-  // }
 };
 
 export default ImagePersonaMessage;

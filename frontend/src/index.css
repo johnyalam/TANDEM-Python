@@ -248,3 +248,14 @@ button.close {
   height: auto;
   z-index: -100;
 }
+
+.scrollable-paragraph-container {
+  height: 150px; /* Set the height of the container */
+  overflow: auto; /* Add scrollbars when content overflows */
+}
+
+.scrollable-paragraph {
+  margin: 0;
+  padding: 0px;
+  color: #fff;
+}
